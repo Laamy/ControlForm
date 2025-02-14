@@ -8,6 +8,8 @@ namespace testform
         public Form1()
         {
             InitializeComponent();
+
+            TitleBar.SetMovable(this, panel1);
         }
     }
 }
