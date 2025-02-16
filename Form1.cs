@@ -35,7 +35,9 @@ public partial class Form1 : ControlForm
         DoubleBuffered = true;
 
         TitleBar.SetMovable(this, TitleBarPanel);
-        
+        TitleBar.SetMovable(this, TitleBar_TitleLbl);
+        TitleBar.SetMovable(this, TitleBar_IconPct);
+
         // animations n code for titlebar btns
         {
             Titlebar_MinBtn.Click += (s, e) => WindowState = FormWindowState.Minimized;

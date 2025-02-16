@@ -7,7 +7,7 @@ using Microsoft.Win32;
 
 public class TitleBar
 {
-    public static void SetMovable(ControlForm form, Panel control)
+    public static void SetMovable(ControlForm form, Control control)
     {
         bool dragging = false;
         Point offset = new Point();

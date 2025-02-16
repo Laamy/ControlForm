@@ -70,10 +70,11 @@ namespace testform
             this.TitleBar_TitleLbl.BackColor = System.Drawing.Color.Transparent;
             this.TitleBar_TitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleBar_TitleLbl.ForeColor = System.Drawing.Color.LightGray;
-            this.TitleBar_TitleLbl.Location = new System.Drawing.Point(30, 9);
+            this.TitleBar_TitleLbl.Location = new System.Drawing.Point(26, 7);
             this.TitleBar_TitleLbl.Name = "TitleBar_TitleLbl";
-            this.TitleBar_TitleLbl.Size = new System.Drawing.Size(0, 15);
+            this.TitleBar_TitleLbl.Size = new System.Drawing.Size(75, 15);
             this.TitleBar_TitleLbl.TabIndex = 3;
+            this.TitleBar_TitleLbl.Text = "ControlForm";
             // 
             // Titlebar_MinBtn
             // 
@@ -118,6 +119,7 @@ namespace testform
             this.ClientSize = new System.Drawing.Size(251, 184);
             this.Controls.Add(this.TitleBarPanel);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
             this.TitleBarPanel.ResumeLayout(false);
