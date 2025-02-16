@@ -1,6 +1,5 @@
 ﻿using testform.TitleBarSDK;
 
-using System.Runtime.InteropServices;
 using System.Drawing;
 using System;
 using System.Windows.Forms;
@@ -22,13 +21,16 @@ public partial class Form1 : ControlForm
         return luminance > 0.5 ? Color.Black : SystemColors.Control;
     }
 
-    // LockWindowUpdate 
-    [DllImport("user32.dll")]
-    public static extern bool LockWindowUpdate(IntPtr hWndLock);
-
     public Form1()
     {
         InitializeComponent();
+
+        var winForm = new Form();
+        winForm.Text = "Form1";
+        winForm.Show();
+
+        TitleBar_TitleLbl.Text = this.Text;
+        TitleBar_IconPct.Image = Icon.ToBitmap();
 
         DoubleBuffered = true;
 
@@ -73,20 +75,31 @@ public partial class Form1 : ControlForm
             void FixTitlebarBtns()
             {
                 Titlebar_MinBtn.ForeColor = AdjustedForeColor();
+                Titlebar_MinBtn.BackColor = TitleBarPanel.BackColor;
+
                 Titlebar_MinMaxBtn.ForeColor = AdjustedForeColor();
+                Titlebar_MinMaxBtn.BackColor = TitleBarPanel.BackColor;
+
                 Titlebar_XBtn.ForeColor = AdjustedForeColor();
+                Titlebar_XBtn.BackColor = TitleBarPanel.BackColor;
+
+                TitleBar_TitleLbl.ForeColor = AdjustedForeColor();
             }
 
             Activated += (s, e) =>
             {
                 TitleBarPanel.BackColor = TitleBar.GetAccentColor();
                 FixTitlebarBtns();
+
+                Invalidate();
             };
 
             Deactivate += (s, e) =>
             {
                 TitleBarPanel.BackColor = AdjustedForeColor();
                 FixTitlebarBtns();
+
+                Invalidate();
             };
         }
     }

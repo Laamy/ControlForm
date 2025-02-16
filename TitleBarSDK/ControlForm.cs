@@ -7,7 +7,17 @@ using System.Runtime.InteropServices;
 
 public class ControlForm : Form
 {
-    public ControlForm() => DisableCaption();
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        DisableCaption();
+        base.OnHandleCreated(e);
+    }
+
+    protected override void OnSizeChanged(EventArgs e)
+    {
+        DisableCaption();
+        base.OnSizeChanged(e);
+    }
 
     [StructLayout(LayoutKind.Sequential)]
     public struct RECT

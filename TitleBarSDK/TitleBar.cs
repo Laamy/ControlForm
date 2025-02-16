@@ -32,7 +32,6 @@ public class TitleBar
             dragging = false;
         };
     }
-
     public static Color fromABGR(int abgr)
     {
         int a = (abgr >> 24) & 0xFF;
@@ -41,7 +40,6 @@ public class TitleBar
         int r = abgr & 0xFF;
         return Color.FromArgb(a, r, g, b);
     }
-
     public static Color GetAccentColor()
     {
         var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
