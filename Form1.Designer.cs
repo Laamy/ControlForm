@@ -36,6 +36,7 @@ namespace testform
             this.Titlebar_MinBtn = new testform.TitleBarSDK.ControlLabel();
             this.Titlebar_MinMaxBtn = new testform.TitleBarSDK.ControlLabel();
             this.Titlebar_XBtn = new testform.TitleBarSDK.ControlLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.TitleBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleBar_IconPct)).BeginInit();
             this.SuspendLayout();
@@ -112,11 +113,20 @@ namespace testform
             this.Titlebar_XBtn.Text = "";
             this.Titlebar_XBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(100, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(79, 160);
+            this.panel1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(251, 184);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.TitleBarPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -137,6 +147,7 @@ namespace testform
         private ControlLabel Titlebar_MinMaxBtn;
         private System.Windows.Forms.Label TitleBar_TitleLbl;
         private System.Windows.Forms.PictureBox TitleBar_IconPct;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
