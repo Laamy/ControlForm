@@ -43,6 +43,8 @@ public class ControlForm : Form
 
     void DisableCaption()
     {
+        if (DesignMode) return;
+
         // reisze redraw cuz flicker shit
         DoubleBuffered = true;
         ResizeRedraw = true;
@@ -68,9 +70,16 @@ public class ControlForm : Form
     {
         if (m.Msg == 0x0083)
         {
+            if (DesignMode) // vs fucking SUCKS
+            {
+                base.WndProc(ref m);
+                return;
+            }
+
             NCCALCSIZE_PARAMS ncsp = (NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(NCCALCSIZE_PARAMS));
             ncsp.rgrc = new RECT { Left = ncsp.rgrc.Left + 5, Top = ncsp.rgrc.Top + 1, Right = ncsp.rgrc.Right - 5, Bottom = ncsp.rgrc.Bottom - 5 };
             Marshal.StructureToPtr(ncsp, m.LParam, false);
+            m.Result = IntPtr.Zero;
             return;
         }
 
