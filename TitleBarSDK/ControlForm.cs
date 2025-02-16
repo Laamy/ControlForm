@@ -43,7 +43,11 @@ public class ControlForm : Form
 
     void DisableCaption()
     {
-        if (DesignMode) return;
+        if (DesignMode)
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            return;
+        }
 
         // reisze redraw cuz flicker shit
         DoubleBuffered = true;
@@ -58,7 +62,16 @@ public class ControlForm : Form
         SetWindowPos(this.Handle, IntPtr.Zero, 0, 0, 0, 0, 0x0002 | 0x0001 | 0x0020);
     }
 
-    void EnableCaption() => FormBorderStyle = FormBorderStyle.Sizable;
+    void EnableCaption()
+    {
+        if (DesignMode)
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            return;
+        }
+
+        FormBorderStyle = FormBorderStyle.Sizable;
+    }
 
     // remove border again while maintaining windows functionality like aero, rounded, ect
     protected override void OnGotFocus(EventArgs e) => DisableCaption();
