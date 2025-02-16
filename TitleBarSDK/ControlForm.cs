@@ -9,14 +9,11 @@ public class ControlForm : Form
 {
     protected override void OnHandleCreated(EventArgs e)
     {
-        DisableCaption();
+        // reisze redraw cuz flicker shit
+        DoubleBuffered = true;
+        ResizeRedraw = true;
         base.OnHandleCreated(e);
-    }
-
-    protected override void OnSizeChanged(EventArgs e)
-    {
         DisableCaption();
-        base.OnSizeChanged(e);
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -48,10 +45,6 @@ public class ControlForm : Form
             this.FormBorderStyle = FormBorderStyle.None;
             return;
         }
-
-        // reisze redraw cuz flicker shit
-        DoubleBuffered = true;
-        ResizeRedraw = true;
 
         // border removal
         IntPtr style = GetWindowLong(this.Handle, -16);
