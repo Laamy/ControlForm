@@ -2,7 +2,7 @@
 
 namespace testform
 {
-    partial class Form1
+    partial class CursedWinform
     {
         /// <summary>
         /// Required designer variable.

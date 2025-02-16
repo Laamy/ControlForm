@@ -72,10 +72,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Examples\OverlapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Examples\OverlapForm.Designer.cs">
+      <DependentUpon>OverlapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Examples\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -87,7 +93,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TitleBarSDK\TitleBar.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Examples\OverlapForm.resx">
+      <DependentUpon>OverlapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examples\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

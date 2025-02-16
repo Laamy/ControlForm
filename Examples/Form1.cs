@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace testform;
 
-public partial class Form1 : ControlForm
+public partial class CursedWinform : ControlForm
 {
     public Color AdjustedForeColor()
     {
@@ -21,14 +21,15 @@ public partial class Form1 : ControlForm
         return luminance > 0.5 ? Color.Black : SystemColors.Control;
     }
 
-    public Form1()
+    public CursedWinform()
     {
         InitializeComponent();
 
-        var winForm = new Form();
+        var winForm = new OverlapForm();
         winForm.Text = "Form1";
         winForm.Show();
 
+        this.Text = "Form1";
         TitleBar_TitleLbl.Text = this.Text;
         TitleBar_IconPct.Image = Icon.ToBitmap();
 
