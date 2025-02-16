@@ -72,13 +72,7 @@ public class ControlForm : Form
 
         FormBorderStyle = FormBorderStyle.Sizable;
     }
-
-    // remove border again while maintaining windows functionality like aero, rounded, ect
-    protected override void OnGotFocus(EventArgs e) => DisableCaption();
-
-    // I have no fucking clue why this works (i've been writing this for the past 1h and 43 minutes)
-    protected override void OnLostFocus(EventArgs e) => EnableCaption();
-
+    
     protected override void WndProc(ref Message m)
     {
         if (m.Msg == 0x0083)
@@ -95,6 +89,9 @@ public class ControlForm : Form
             m.Result = IntPtr.Zero;
             return;
         }
+
+        if (m.Msg == 0x0086)
+            EnableCaption();
 
         base.WndProc(ref m);
     }
